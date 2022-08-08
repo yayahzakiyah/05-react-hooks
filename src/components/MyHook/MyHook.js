@@ -10,13 +10,34 @@ const MyHook = () => {
     //     setCounter(counter - 1)
     // }
 
-    const {counter, add, min} = useMyHook()
-    return (
-        <div>
-            result: {counter}
+    // const {counter, add, min} = useMyHook()
+    // return (
+    //     <div>
+    //         result: {counter}
+    //         <button onClick={add}>+</button>
+    //         <button onClick={min}>-</button>
+    //     </div>
+    // )
+
+    const {result, status, add, min} = useMyHook();
+    const ButtonGroup =() => (
+        <>
             <button onClick={add}>+</button>
             <button onClick={min}>-</button>
-        </div>
+        </>
+    )
+
+    return(
+        <>
+            {(status === 'idle' || status==='failed') && <ButtonGroup/>}
+            {status === "loading" && <div>Loading</div>}
+            {status === 'succes' &&
+                <div>
+                    result: {result}
+                    <ButtonGroup/>  
+                </div>}
+
+        </>
     )
 }
 
