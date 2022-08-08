@@ -18,12 +18,11 @@ export const MoreEffect = () => {
     //     </>
     // )
 
-    const [result, setResult] = useState('')
-    const [id, setId] = useState('10')
-
+    // const [result, setResult] = useState('')
+    // const [id, setId] = useState('10')
     useEffect( () => {
-        setResult(doPrint(id));
-        console.log('1');
+        result = (doPrint(id))
+        console.log(result);
         //deps => penting, mengatur kapan use effect dijalankan
         //jika tidak ada akan terus dijalankan, useEffect dipanggil terus
         //useState akan merender ketika terjadi perubahan tapi jika tidak ada perubahan state tidak akan merender
