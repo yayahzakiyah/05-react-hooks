@@ -3,47 +3,34 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-  .display{
-  background-color: whitesmoke;
-  height: 80px;
-  display: flex;
-  width: 230px;
-  }
-  .buttons{
-  width: 230px;
-  }
-  .cls{
-  width: 116px;
-  height: 50px;
-  font-size: 35px;
-  border: 1px solid white;
-  }
-  .red-btn-c{
-  width: 116px;
-  height: 50px;
-  background-color: #d12c4d;
-  color: white;
-  font-size: 35px;
-  border: 1px solid white;
-  }
-  .red-btn{
-  width: 57px;
-  height: 50px;
-  background-color: #d12c4d;
-  color: white;
-  font-size: 35px;
-  border: 1px solid black;
-  }
-  .num-btns{
-  border: 1px solid black;
-  width: 58px;
-  height: 50px;
-  font-size: 35px;
-  }
-  #input{
-  background-color: #433437;
-  color: white;
-  text-align: right;
-  width: 230px;
-  }
+}
+.display{
+    background-color: whitesmoke;
+    height: 80px;
+    display: flex;
+    width: 228px;
+}
+
+.red-btn{
+    width: 58px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    font-size: 35px;
+    border: 1px solid black;
+}
+
+.num-btns{
+    border: 1px solid black;
+    width: 58px;
+    height: 50px;
+    font-size: 35px;
+}
+
+#input{
+    background-color: whitesmoke;
+    color: darkblue;
+    text-align: right;
+    width: 228px;
+    font-size: 20px;
+}

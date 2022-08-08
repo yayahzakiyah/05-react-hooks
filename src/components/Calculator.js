@@ -25,7 +25,7 @@ export function Calculator() {
               return (acc = acc - array[index + 1]);
             case "x":
               return (acc = acc * array[index + 1]);
-            case "÷":
+            case "/":
               return (acc = acc / array[index + 1]);
             default:
               return acc;
@@ -61,7 +61,7 @@ export function Calculator() {
                 </div>
                 <div className='num'>
                     <button onClick={handleClear} name='c' className='red-btn'>C</button>
-                    <button onClick={()=> handleClick('+')} name='+' className='red-btn'>+</button> 
+                    <button onClick={()=> handleClick('/')} name='/' className='red-btn'>:</button> 
                     <button onClick={()=> handleClick(0)} name='0' className='num-btns'>0</button>
                     <button onClick={handleCalculate} name='calculate' className='red-btn'>=</button>
                 </div>
