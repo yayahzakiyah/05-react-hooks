@@ -7,6 +7,7 @@ import { HookComponent } from './components/HookComponent';
 import { CustomerOrderView } from './components/CustomerOrderView';
 import { DepsProvider } from './context/depContext';
 import { MoreEffectService } from './services/MoreEffectService';
+import MyHook from './components/MyHook/MyHook';
 
 const App = () => {
   // const [pageID, setPageId] = useState(0)
@@ -18,11 +19,12 @@ const App = () => {
   return (
     // <HookComponent/>
     // <CustomerOrderView/>
-    <DepsProvider services={{
-      moreEffectService: MoreEffectService()
-    }}>
-      <MoreEffect/>
-    </DepsProvider>
+    // <DepsProvider services={{
+    //   moreEffectService: MoreEffectService()
+    // }}>
+    //   <MoreEffect/>
+    // </DepsProvider>
+    <MyHook/>
   )
 }
 
