@@ -4,6 +4,7 @@ import { MoreEffect } from './components/MoreEffect';
 import { ThemeModifier } from './components/ThemeModifier';
 import { DummyView } from './components/DummyView';
 import { HookComponent } from './components/HookComponent';
+import { CustomerOrderView } from './components/CustomerOrderView';
 
 const App = () => {
   // const [pageID, setPageId] = useState(0)
@@ -13,7 +14,8 @@ const App = () => {
   // )
 
   return (
-    <HookComponent/>
+    // <HookComponent/>
+    <CustomerOrderView/>
   )
 }
 
