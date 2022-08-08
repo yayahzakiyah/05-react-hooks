@@ -3,44 +3,51 @@ import { MoreEffectService } from "../services/MoreEffectService"
 
 export const MoreEffect = () => {
     const {doPrint} = MoreEffectService()
-    // //cara 1
-    // const [result, setResult] = useState()
-
-    //useEffect itu dipanggil ketik ada perubahan (id)
-    // //useEffect
-    // useEffect( () => {
-    //     setResult(doPrint('1'))
-    //     console.log('1');
-    // }, [])
-    // return (
-    //     <>
-    //         <h1>Print : {result}</h1>
-    //     </>
-    // )
-
-    // const [result, setResult] = useState('')
-    // const [id, setId] = useState('10')
-    useEffect( () => {
-        result = (doPrint(id))
+    // cara yang salah, result tidak akan tercetal di browser, diperlukan state
+    let result = 'empty';
+    useEffect(() => {
+        result = doPrint('1')
         console.log(result);
-        //deps => penting, mengatur kapan use effect dijalankan
-        //jika tidak ada akan terus dijalankan, useEffect dipanggil terus
-        //useState akan merender ketika terjadi perubahan tapi jika tidak ada perubahan state tidak akan merender
-        //beda kasusnya kalo kita pakai doPrint diganti Math.Random akan dijalankan terus karena Math.Random terus berubah
-        //array dikosong dideps akan dijalankan sekali di didMount dan 
-        /*
-            Deps kosong = any changes
-            Deps [] = didMount only
-            Deps [value] = didUpdate when value change 
-        */
-       
-    }, [id]) //semua tergantung deps, ini menandakan perubahan berdasarkan id
+    })
     return (
         <>
-            <input type='type' value={id} onChange={(e) => {
-                setId(e.target.value)}}/>
-            {/* <button onClick={() => setId('10')}>Click</button> */}
-            <h1>Print : {result}</h1>
+            <h1>Print:{result}</h1>
         </>
     )
+
+    //Hati2, Backend akan di-flooding dengan request
+    //karena useEffect === componentDidMount & ComponentDidUpdate
+    // const[result, setResult] = useState('')
+    // useEffect(() => {
+    //     setResult(doPrint('1'));
+    //     console.log('1');
+    // }, [])
+       
+   //Cara yang banyak digunakan
+//    const [result, setResult] = useState();
+//    useEffect(() => {
+//     setResult(doPrint(id));
+//     console.log('1');
+//    },[]);
+
+//    return (
+//     <>
+//         <h1>Print:{result}</h1>
+//     </>
+//    )
+
+    //useEffect akan dipanggil lagi ketika ada perubahan id
+    // const [result, setResult] = useState('');
+    // const [id, setId] = useState('')
+    // useEffect(() => {
+    //     setResult(doPrint(id))
+    //     console.log('1');
+    // }, [id])
+
+    // return (
+    //     <>
+    //         <button onClick={() => setId('12')}>Click</button>
+    //         <h1>Print:{result}</h1>
+    //     </>
+    // )
 }
