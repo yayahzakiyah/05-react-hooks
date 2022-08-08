@@ -4,33 +4,70 @@
     align-items: center;
     flex-direction: column;
 }
-.display{
-    background-color: whitesmoke;
-    height: 80px;
-    display: flex;
-    width: 228px;
+
+.calculator{
+    background-color: rgb(133, 125, 141);
+    height: 350px;
+    padding-top: 20px;
+    width: 300px;
+    padding-left: 50px;
+    border-radius: 20px;
+    border: 2px solid rgb(3, 3, 3);
 }
 
-.red-btn{
+.display{
+    height: 80px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.op-btns{
     width: 58px;
     height: 50px;
-    background-color: blue;
+    background-color: rgb(111, 249, 5);
     color: white;
     font-size: 35px;
-    border: 1px solid black;
+    border: 2px solid rgb(246, 242, 242);
+    border-radius: 8px;
+    margin: 3px;
 }
 
 .num-btns{
-    border: 1px solid black;
+    border: 2px solid rgb(246, 242, 242);
     width: 58px;
     height: 50px;
     font-size: 35px;
+    border-radius: 8px;
+    margin: 3px;
 }
 
-#input{
+.c-btn{
+    border: 2px solid rgb(246, 242, 242);
+    width: 58px;
+    height: 50px;
+    font-size: 35px;
+    border-radius: 8px;
+    margin: 3px;
+    background-color: red;
+}
+
+.eq-btn{
+    border: 2px solid rgb(246, 242, 242);
+    width: 58px;
+    height: 50px;
+    font-size: 35px;
+    border-radius: 8px;
+    margin: 3px;
+    background-color: yellow;
+}
+
+.result{
     background-color: whitesmoke;
     color: darkblue;
     text-align: right;
-    width: 228px;
-    font-size: 20px;
+    width: 245px;
+    font-size: 26px;
+    border-radius: 10px;
+    border: 2px solid rgb(3, 3, 3);
+    padding-top: 20px;
 }
