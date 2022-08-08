@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { MoreEffectService } from "../services/MoreEffectService"
+import { useDeps } from "../context/depContext"
 
 export const MoreEffect = () => {
-    const {doPrint} = MoreEffectService()
+    // const {doPrint} = MoreEffectService()
     // //cara 1
     // const [result, setResult] = useState()
 
@@ -18,12 +18,14 @@ export const MoreEffect = () => {
     //     </>
     // )
 
+    const {MoreEffectService: {doPrint}} = useDeps()
+
     const [result, setResult] = useState('')
     const [id, setId] = useState('10')
 
     useEffect( () => {
         setResult(doPrint(id));
-        console.log('1');
+        // console.log('1');
         //deps => penting, mengatur kapan use effect dijalankan
         //jika tidak ada akan terus dijalankan, useEffect dipanggil terus
         //useState akan merender ketika terjadi perubahan tapi jika tidak ada perubahan state tidak akan merender
@@ -34,6 +36,8 @@ export const MoreEffect = () => {
             Deps [] = didMount only
             Deps [value] = didUpdate when value change 
         */
+
+        return (() => console.log('call'))
        
     }, [id]) //semua tergantung deps, ini menandakan perubahan berdasarkan id
     return (
