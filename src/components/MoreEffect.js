@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react"
+import { useDeps } from "../context/depContext"
 import { MoreEffectService } from "../services/MoreEffectService"
 
 export const MoreEffect = () => {
-    const {doPrint} = MoreEffectService()
+    const {moreEffectService: {doPrint}} = useDeps()
+    // const {doPrint} = MoreEffectService()
     // cara yang salah, result tidak akan tercetal di browser, diperlukan state
-    let result = 'empty';
-    useEffect(() => {
-        result = doPrint('1')
-        console.log(result);
-    })
-    return (
-        <>
-            <h1>Print:{result}</h1>
-        </>
-    )
+    // let result = 'empty';
+    // useEffect(() => {
+    //     result = doPrint('1')
+    //     console.log(result);
+    // })
+    // return (
+    //     <>
+    //         <h1>Print:{result}</h1>
+    //     </>
+    // )
 
     //Hati2, Backend akan di-flooding dengan request
     //karena useEffect === componentDidMount & ComponentDidUpdate
@@ -37,17 +39,17 @@ export const MoreEffect = () => {
 //    )
 
     //useEffect akan dipanggil lagi ketika ada perubahan id
-    // const [result, setResult] = useState('');
-    // const [id, setId] = useState('')
-    // useEffect(() => {
-    //     setResult(doPrint(id))
-    //     console.log('1');
-    // }, [id])
+    const [result, setResult] = useState('');
+    const [id, setId] = useState('')
+    useEffect(() => {
+        setResult(doPrint(id))
+        console.log('1');
+    }, [id])
 
-    // return (
-    //     <>
-    //         <button onClick={() => setId('12')}>Click</button>
-    //         <h1>Print:{result}</h1>
-    //     </>
-    // )
+    return (
+        <>
+            <button onClick={() => setId('12')}>Click</button>
+            <h1>Print:{result}</h1>
+        </>
+    )
 }
