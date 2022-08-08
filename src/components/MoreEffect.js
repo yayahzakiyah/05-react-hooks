@@ -2,22 +2,6 @@ import { useEffect, useState } from "react"
 import { useDeps } from "../context/depContext"
 
 export const MoreEffect = () => {
-    // const {doPrint} = MoreEffectService()
-    // //cara 1
-    // const [result, setResult] = useState()
-
-    //useEffect itu dipanggil ketik ada perubahan (id)
-    // //useEffect
-    // useEffect( () => {
-    //     setResult(doPrint('1'))
-    //     console.log('1');
-    // }, [])
-    // return (
-    //     <>
-    //         <h1>Print : {result}</h1>
-    //     </>
-    // )
-
     const {MoreEffectService: {doPrint}} = useDeps()
 
     const [result, setResult] = useState('')

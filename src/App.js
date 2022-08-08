@@ -6,6 +6,7 @@ import { DummyView } from './components/DummyView';
 import { HookComponent } from './components/HookComponent';
 import { MoreEffectService } from './services/MoreEffectService';
 import { DepsProvider } from './context/depContext';
+import MyHook from './components/MyHook/MyHook';
 
 const App = () => {
   // const [pageID, setPageId] = useState(0)
@@ -18,12 +19,16 @@ const App = () => {
   //   <HookComponent/>
   // )
 
+  // return (
+  //   <DepsProvider service={{
+  //       MoreEffectService : MoreEffectService()
+  //   }}>
+  //     <MoreEffect/>
+  //   </DepsProvider>
+  // )
+
   return (
-    <DepsProvider service={{
-        MoreEffectService : MoreEffectService()
-    }}>
-      <MoreEffect/>
-    </DepsProvider>
+    <MyHook/>
   )
 }
 
