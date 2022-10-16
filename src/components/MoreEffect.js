@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useDeps } from "../context/depContext"
-import { MoreEffectService } from "../services/MoreEffectService"
 
 export const MoreEffect = () => {
     const {moreEffectService: {doPrint}} = useDeps()
