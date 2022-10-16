@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useDeps } from "../context/depContext"
-import { MoreEffectService } from "../services/MoreEffectService"
 
 export const MoreEffect = () => {
     const {moreEffectService: {doPrint}} = useDeps()
@@ -43,7 +42,7 @@ export const MoreEffect = () => {
     const [id, setId] = useState('')
     useEffect(() => {
         setResult(doPrint(id))
-        console.log('1');
+        return () => console.log('1');
     }, [id])
 
     return (
