@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { MoreEffectService } from "../services/MoreEffectService"
+import { moreEffectService } from "../services/moreEffectService"
 
 export const MoreEffect = () => {
-    const {doPrint} = MoreEffectService()
+    const {doPrint} = moreEffectService()
     // cara yang salah, result tidak akan tercetal di browser, diperlukan state
     let result = 'empty';
     useEffect(() => {
