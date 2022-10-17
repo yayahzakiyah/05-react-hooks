@@ -1,44 +1,34 @@
-import { useState } from "react"
-import useMyHook from "./UseMyHook"
+import React from 'react';
+import useMyHook from "./UseMyHook";
 
-const MyHook = () => {
-    // const [counter, setCounter] = useState(0)
+const MyHook = props => {
+    // const [counter, setCounter] = useState(0);
     // const add = () => {
     //     setCounter(counter + 1)
     // }
     // const min = () => {
     //     setCounter(counter - 1)
     // }
-
-    // const {counter, add, min} = useMyHook()
-    // return (
-    //     <div>
-    //         result: {counter}
-    //         <button onClick={add}>+</button>
-    //         <button onClick={min}>-</button>
-    //     </div>
-    // )
-
     const {result, status, add, min} = useMyHook();
-    const ButtonGroup =() => (
+    const ButtonGroup = () => (
         <>
             <button onClick={add}>+</button>
             <button onClick={min}>-</button>
         </>
     )
-
-    return(
+    console.log(result);
+    return (
         <>
-            {(status === 'idle' || status==='failed') && <ButtonGroup/>}
-            {status === "loading" && <div>Loading</div>}
-            {status === 'succes' &&
+            {(status === 'idle' || status === 'failed') && <ButtonGroup/>}
+            {status === 'loading' && <div>LOADING</div>}
+            {status === 'success' &&
                 <div>
-                    result: {result}
-                    <ButtonGroup/>  
-                </div>}
-
+                    result : {result}
+                    <ButtonGroup/>
+                </div>
+            }
         </>
-    )
-}
+    );
+};
 
 export default MyHook;

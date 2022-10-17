@@ -1,24 +1,24 @@
-import { useState } from "react";
+import {useState} from "react";
 
-export const useAsync = () => {
+const useAsync = () => {
     const [status, setStatus] = useState('idle');
-    const [value, setValue] = useState(null)
-    const [error, setError] = useState(null)
+    const [value, setValue] = useState(null);
+    const [error, setError] = useState(null);
 
     const execute = async (asyncFn) => {
-        setStatus("Loading")
+        setStatus("loading");
         setValue(null);
         setError(null);
-        try{
-            const response = await asyncFn()
+        try {
+            const response = await asyncFn();
+            // console.log('resp', response)
             setValue(response);
-            setValue("success")
+            setStatus("success");
         } catch (e) {
             setError(e.message);
-            setStatus("failed")
+            setStatus("failed");
         }
     }
-    return {execute, status, value, error}
+    return {execute, status, value, error};
 }
-
-export default useAsync
+export default useAsync;
